@@ -1,29 +1,55 @@
-import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
-import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import 'react-native-reanimated';
-
-import { useColorScheme } from '@/hooks/useColorScheme';
+import { Theme } from "@/components";
+import { Ionicons } from "@expo/vector-icons";
+import { RealmProvider } from "@realm/react";
+import { Tabs } from "expo-router";
 
 export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-  });
-
-  if (!loaded) {
-    // Async font loading only occurs in development.
-    return null;
-  }
-
+  const {
+    fontFamily,
+    primary: olive,
+    primaryTranslucent: oliveTranslucent,
+  } = Theme;
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" />
-      </Stack>
-      <StatusBar style="auto" />
-    </ThemeProvider>
+    <RealmProvider deleteRealmIfMigrationNeeded>
+      <Tabs
+        screenOptions={{
+          headerTitleStyle: { fontFamily },
+          headerTintColor: olive,
+          tabBarLabelStyle: {
+            fontFamily,
+          },
+          headerShown: false,
+          tabBarActiveTintColor: olive,
+          tabBarActiveBackgroundColor: oliveTranslucent,
+        }}
+      >
+        <Tabs.Screen
+          name="index"
+          options={{
+            title: "Home",
+            tabBarIcon: ({ color, focused, size }) => (
+              <Ionicons
+                name={focused ? "home-sharp" : "home-outline"}
+                color={color}
+                size={size}
+              />
+            ),
+          }}
+        />
+        <Tabs.Screen
+          name="(tabs)/to-do"
+          options={{
+            title: "To Do",
+            tabBarIcon: ({ color, focused, size }) => (
+              <Ionicons
+                name={focused ? "pencil-sharp" : "pencil-outline"}
+                color={color}
+                size={size}
+              />
+            ),
+          }}
+        />
+      </Tabs>
+    </RealmProvider>
   );
 }

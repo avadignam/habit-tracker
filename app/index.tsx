@@ -1,4 +1,5 @@
-import { Text, Theme, ThemeProvider } from "@/components";
+import Text from "@/components/Text";
+import ThemeProvider, { Theme } from "@/components/ThemeProvider";
 
 export default function Index() {
   const { fontFamily } = Theme;

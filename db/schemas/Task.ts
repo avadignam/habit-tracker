@@ -1,6 +1,10 @@
 import { Realm } from "realm";
 
-export class Task extends Realm.Object {
+export class Task extends Realm.Object<Task> {
+  _id!: Realm.BSON.ObjectId;
+  title!: string;
+  description!: string;
+
   static schema = {
     name: "Task",
     primaryKey: "_id",

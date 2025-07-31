@@ -26,6 +26,7 @@ export const Theme: ThemeContextState = {
   primaryTranslucent: "rgba(100, 119, 68, 0.12)",
   borderRadius: 16,
 };
+
 export default function ThemeProvider({ children }: Props) {
   return (
     <ThemeContext.Provider value={Theme}>

@@ -1,6 +1,7 @@
-import { Theme } from "@/components";
+import { Theme } from "@/components/ThemeProvider";
+import { RealmProvider } from "@/db/RealmContext";
+import { Task } from "@/db/schemas/Task";
 import { Ionicons } from "@expo/vector-icons";
-import { RealmProvider } from "@realm/react";
 import { Tabs } from "expo-router";
 
 export default function RootLayout() {
@@ -10,7 +11,7 @@ export default function RootLayout() {
     primaryTranslucent: oliveTranslucent,
   } = Theme;
   return (
-    <RealmProvider deleteRealmIfMigrationNeeded>
+    <RealmProvider schema={[Task]}>
       <Tabs
         screenOptions={{
           headerTitleStyle: { fontFamily },

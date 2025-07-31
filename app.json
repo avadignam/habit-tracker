@@ -44,6 +44,8 @@
       "eas": {
         "projectId": "0f90e017-52a0-4c16-9e85-0488e8ab1675"
       }
-    }
+    },
+    "jsEngine": "hermes",
+    "owner": "yungsulani"
   }
 }

@@ -1,34 +1,40 @@
+import { Icon } from "@/components/Icon";
 import Input from "@/components/Input";
-import Text from "@/components/Text";
-import ThemeProvider, { Theme } from "@/components/ThemeProvider";
-import { Ionicons } from "@expo/vector-icons";
+import ThemeProvider from "@/components/ThemeProvider";
+import { Todo } from "@/components/Todo";
 import { useState } from "react";
-import { Pressable, View } from "react-native";
-
-function addTask(task: string) {
-  alert(task);
-}
+import { FlatList, Pressable, StyleSheet, View } from "react-native";
 
 export default function ToDoPage() {
-  const { primary } = Theme;
-  const [todo, setTodo] = useState<string>();
+  const [todo, setTodo] = useState<string>("");
+  const [todos, setTodos] = useState<string[]>([]);
+
+  function addTask() {
+    setTodos((todos) => [...todos, todo]);
+    setTodo("");
+  }
+
   return (
     <ThemeProvider>
       <View>
         <View style={{ alignItems: "flex-end", display: "flex" }}>
-          <Pressable
-            aria-label="Add a task"
-            disabled={!todo}
-            onPress={() => {
-              if (todo) addTask(todo);
-            }}
-          >
-            <Ionicons name="add" size={24} color={primary} />
+          <Pressable aria-label="Add a task" disabled={!todo}>
+            <Icon name="add" />
           </Pressable>
         </View>
-        <Text className="bg-orange-400">{todo}</Text>
-        <Input onChangeText={setTodo} />
+        <Input value={todo} onChangeText={setTodo} onSubmitEditing={addTask} />
+        <FlatList
+          style={styles.todos}
+          data={todos}
+          renderItem={({ item }) => <Todo text={item} />}
+        />
       </View>
     </ThemeProvider>
   );
 }
+
+const styles = StyleSheet.create({
+  todos: {
+    marginTop: 8,
+  },
+});

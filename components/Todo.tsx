@@ -1,20 +1,23 @@
+import { TODO_TABLE } from "@/app/(to-dos)/consts";
 import { Pressable, StyleSheet, View } from "react-native";
+import { useRow } from "tinybase/ui-react";
 import { Icon } from "./Icon";
 import Text from "./Text";
 import { Theme } from "./ThemeProvider";
 
 interface Props {
-  text: string;
+  id: string;
 }
 
-export function Todo({ text }: Props) {
+export default function TodoComponent({ id }: Props) {
+  const { title } = useRow(TODO_TABLE, id);
   return (
     <View style={styles.wrapper}>
       <View style={styles.trashAndTodo}>
         <Pressable style={styles.trash} aria-label="Delete task">
           <Icon name="trash" size={16} />
         </Pressable>
-        <Text>{text}</Text>
+        <Text>{title}</Text>
       </View>
     </View>
   );

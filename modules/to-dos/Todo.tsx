@@ -1,8 +1,9 @@
 import { Icon, Text } from "@/components";
 import { Theme } from "@/components/ThemeProvider";
-import { Todo, TODO_TABLE } from "@/modules/to-dos/consts";
+import { TODO_TABLE } from "@/modules/to-dos/consts";
 import { Pressable, StyleSheet, View } from "react-native";
-import { useDelRowCallback, useRow } from "tinybase/ui-react";
+import { useRow } from "tinybase/ui-react";
+import { deleteTodo } from "./utils";
 
 interface Props {
   id: string;
@@ -11,14 +12,12 @@ interface Props {
 export default function TodoComponent({ id }: Props) {
   const { title } = useRow(TODO_TABLE, id);
 
-  const handleDelete = useDelRowCallback<Todo>(TODO_TABLE, id);
-
   return (
     <View style={styles.wrapper}>
       <View style={styles.trashAndTodo}>
         <Pressable
           style={styles.trash}
-          onPress={() => handleDelete()}
+          onPress={() => deleteTodo(id)}
           aria-label="Delete task"
         >
           <Icon name="trash" size={16} />

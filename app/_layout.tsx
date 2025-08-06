@@ -1,4 +1,4 @@
-import { Icon } from "@/components/Icon";
+import { Icon } from "@/components";
 import { Theme } from "@/components/ThemeProvider";
 import { Tabs } from "expo-router";
 import * as SQLite from "expo-sqlite";

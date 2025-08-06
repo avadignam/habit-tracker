@@ -1,9 +1,8 @@
-import { TODO_TABLE } from "@/app/(to-dos)/consts";
+import { Icon, Text } from "@/components";
+import { Theme } from "@/components/ThemeProvider";
+import { TODO_TABLE } from "@/modules/to-dos/consts";
 import { Pressable, StyleSheet, View } from "react-native";
 import { useRow } from "tinybase/ui-react";
-import { Icon } from "./Icon";
-import Text from "./Text";
-import { Theme } from "./ThemeProvider";
 
 interface Props {
   id: string;

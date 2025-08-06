@@ -1,11 +1,10 @@
-import { Icon } from "@/components/Icon";
-import Input from "@/components/Input";
+import { Icon, Input } from "@/components";
 import ThemeProvider from "@/components/ThemeProvider";
-import TodoComponent from "@/components/Todo";
+import TodoComponent from "@/modules/to-dos/Todo";
 import { useState } from "react";
 import { FlatList, Pressable, StyleSheet, View } from "react-native";
 import { useAddRowCallback, useRowIds } from "tinybase/ui-react";
-import { Columns, Todo, TODO_TABLE } from "./consts";
+import { Columns, Todo, TODO_TABLE } from "../../modules/to-dos/consts";
 
 export default function ToDoPage() {
   const [todo, setTodo] = useState<string>("");

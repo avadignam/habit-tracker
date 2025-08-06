@@ -2,7 +2,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { ComponentProps } from "react";
 import { Theme } from "./ThemeProvider";
 
-export function Icon({
+export default function Icon({
   color = Theme.primary,
   size = 24,
   ...rest

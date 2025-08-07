@@ -52,20 +52,20 @@ export default function RootLayout() {
           }}
         >
           <Tabs.Screen
-            name="(to-dos)/to-do"
-            options={{
-              title: "To Do",
-              tabBarIcon: ({ focused }) => (
-                <Icon name={focused ? "pencil-sharp" : "pencil-outline"} />
-              ),
-            }}
-          />
-          <Tabs.Screen
             name="index"
             options={{
               title: "Home",
               tabBarIcon: ({ focused }) => (
                 <Icon name={focused ? "home-sharp" : "home-outline"} />
+              ),
+            }}
+          />
+          <Tabs.Screen
+            name="to-dos"
+            options={{
+              title: "To Do",
+              tabBarIcon: ({ focused }) => (
+                <Icon name={focused ? "pencil-sharp" : "pencil-outline"} />
               ),
             }}
           />

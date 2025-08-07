@@ -1,5 +1,5 @@
 import { createContext, ReactNode } from "react";
-import { Platform, SafeAreaView } from "react-native";
+import { Platform } from "react-native";
 
 interface ThemeContextState {
   fontFamily?: string;
@@ -29,15 +29,6 @@ export const Theme: ThemeContextState = {
 
 export default function ThemeProvider({ children }: Props) {
   return (
-    <ThemeContext.Provider value={Theme}>
-      <SafeAreaView
-        style={{
-          height: "100%",
-          margin: 20,
-        }}
-      >
-        {children}
-      </SafeAreaView>
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={Theme}>{children}</ThemeContext.Provider>
   );
 }

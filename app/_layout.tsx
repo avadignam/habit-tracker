@@ -61,9 +61,29 @@ export default function RootLayout() {
             }}
           />
           <Tabs.Screen
+            name="(habits)"
+            options={{
+              title: "Habits",
+              tabBarIcon: ({ focused }) => (
+                <Icon name={focused ? "alarm-sharp" : "alarm-outline"} />
+              ),
+            }}
+          />
+          <Tabs.Screen
             name="to-dos"
             options={{
               title: "To Do",
+              tabBarIcon: ({ focused }) => (
+                <Icon
+                  name={focused ? "checkmark-sharp" : "checkmark-outline"}
+                />
+              ),
+            }}
+          />
+          <Tabs.Screen
+            name="notes/index"
+            options={{
+              title: "Notes",
               tabBarIcon: ({ focused }) => (
                 <Icon name={focused ? "pencil-sharp" : "pencil-outline"} />
               ),

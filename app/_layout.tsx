@@ -1,5 +1,5 @@
 import { Icon } from "@/components";
-import { Theme } from "@/components/ThemeProvider";
+import MainNavigation from "@/modules/navigation/MainNavigation";
 import { Tabs } from "expo-router";
 import * as SQLite from "expo-sqlite";
 import { Platform } from "react-native";
@@ -27,12 +27,6 @@ const useAndStartPersister = (store: Store) =>
   );
 
 export default function RootLayout() {
-  const {
-    fontFamily,
-    primary: olive,
-    primaryTranslucent: oliveTranslucent,
-  } = Theme;
-
   const store = useCreateMergeableStore(createMergeableStore);
 
   useAndStartPersister(store);
@@ -40,16 +34,8 @@ export default function RootLayout() {
     <Provider store={store}>
       <SafeAreaProvider>
         <Tabs
-          screenOptions={{
-            headerTitleStyle: { fontFamily },
-            headerTintColor: olive,
-            tabBarLabelStyle: {
-              fontFamily,
-            },
-            headerShown: false,
-            tabBarActiveTintColor: olive,
-            tabBarActiveBackgroundColor: oliveTranslucent,
-          }}
+          screenOptions={{ headerShown: false }}
+          tabBar={(props) => <MainNavigation {...props} />}
         >
           <Tabs.Screen
             name="index"

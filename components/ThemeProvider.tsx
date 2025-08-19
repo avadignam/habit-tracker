@@ -6,6 +6,7 @@ interface ThemeContextState {
   primary: string;
   primaryTranslucent: string;
   borderRadius: number;
+  screenMargin: number;
 }
 
 export const ThemeContext = createContext<ThemeContextState | undefined>(
@@ -25,6 +26,7 @@ export const Theme: ThemeContextState = {
   primary: "#647744",
   primaryTranslucent: "rgba(100, 119, 68, 0.12)",
   borderRadius: 16,
+  screenMargin: 20,
 };
 
 export default function ThemeProvider({ children }: Props) {

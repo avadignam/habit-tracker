@@ -4,6 +4,7 @@ import {
   SafeAreaViewProps,
 } from "react-native-safe-area-context";
 import BackButton from "./BackButton";
+import { Theme } from "./ThemeProvider";
 
 export default function SafeAreaView({
   showBackButton = false,
@@ -11,7 +12,7 @@ export default function SafeAreaView({
   ...rest
 }: PropsWithChildren<SafeAreaViewProps & { showBackButton?: boolean }>) {
   return (
-    <RNSafeAreaView {...rest} style={{ margin: 20 }}>
+    <RNSafeAreaView {...rest} style={{ margin: Theme.screenMargin }}>
       {showBackButton && <BackButton />}
       {children}
     </RNSafeAreaView>

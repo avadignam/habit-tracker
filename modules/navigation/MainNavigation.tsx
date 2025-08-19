@@ -56,9 +56,7 @@ export default function MainNavigation({
           const isFocused = state.index === index;
 
           function onTabPress() {
-            tabPositionX.value = withSpring(buttonWidth * index, {
-              duration: 1500,
-            });
+            tabPositionX.value = withSpring(buttonWidth * index);
             const event = navigation.emit({
               type: "tabPress",
               target: route.key,

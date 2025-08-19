@@ -5,7 +5,7 @@ export default function Notes() {
   return (
     <ThemeProvider>
       <SafeAreaView>
-        <Text>notes will go here</Text>
+        <Text>You don't have any notes yet! Click the '+' to create one</Text>
       </SafeAreaView>
     </ThemeProvider>
   );

@@ -1,5 +1,6 @@
 import { Icon } from "@/components";
 import MainNavigation from "@/modules/navigation/MainNavigation";
+import { LISTS_TABLE, TODO_TABLE } from "@/modules/to-dos";
 import { Tabs } from "expo-router";
 import * as SQLite from "expo-sqlite";
 import { Platform } from "react-native";
@@ -7,11 +8,13 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { createMergeableStore } from "tinybase/mergeable-store";
 import { createLocalPersister } from "tinybase/persisters/persister-browser";
 import { createExpoSqlitePersister } from "tinybase/persisters/persister-expo-sqlite";
+import { createRelationships } from "tinybase/relationships";
 import { Store } from "tinybase/store";
 import {
   Provider,
   useCreateMergeableStore,
   useCreatePersister,
+  useCreateRelationships,
 } from "tinybase/ui-react";
 
 const useAndStartPersister = (store: Store) =>
@@ -28,10 +31,18 @@ const useAndStartPersister = (store: Store) =>
 
 export default function RootLayout() {
   const store = useCreateMergeableStore(createMergeableStore);
+  const relationships = useCreateRelationships(store, (store) =>
+    createRelationships(store).setRelationshipDefinition(
+      "parentTodoList",
+      TODO_TABLE,
+      LISTS_TABLE,
+      "parentId"
+    )
+  );
 
   useAndStartPersister(store);
   return (
-    <Provider store={store}>
+    <Provider store={store} relationships={relationships}>
       <SafeAreaProvider>
         <Tabs
           screenOptions={{ headerShown: false }}

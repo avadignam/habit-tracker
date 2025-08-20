@@ -18,7 +18,7 @@ const schema = z.object({
 type FormValues = z.infer<typeof schema>;
 
 export default function CreateList() {
-  const router = useRouter();
+  const { navigate } = useRouter();
   const [color, setColor] = useState<Color>("red");
 
   const {
@@ -36,7 +36,7 @@ export default function CreateList() {
     }),
     [],
     undefined,
-    (rowId) => router.navigate(`/to-dos/${rowId}`)
+    (rowId) => navigate(`/to-dos/${rowId}`)
   );
 
   return (

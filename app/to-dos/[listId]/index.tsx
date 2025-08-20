@@ -1,15 +1,21 @@
-import { Icon, SafeAreaView, Text } from "@/components";
+import { Icon, SafeAreaView } from "@/components";
 import BackButton from "@/components/BackButton";
-import ThemeProvider from "@/components/ThemeProvider";
+import ThemeProvider, { Theme } from "@/components/ThemeProvider";
 import { LISTS_TABLE, TodoComponent } from "@/modules/to-dos";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { Pressable, View } from "react-native";
-import { LocalRowsView, useRow } from "tinybase/ui-react";
+import { Pressable, TextInput, View } from "react-native";
+import { LocalRowsView, useRow, useSetRowCallback } from "tinybase/ui-react";
 
 export default function List() {
   const { navigate } = useRouter();
   const { listId } = useLocalSearchParams();
   const row = useRow(LISTS_TABLE, listId as string);
+
+  const handleUpdateTitle = useSetRowCallback(
+    LISTS_TABLE,
+    listId as string,
+    (title: string) => ({ title })
+  );
 
   return (
     <SafeAreaView>
@@ -29,8 +35,18 @@ export default function List() {
             <Icon name="add" />
           </Pressable>
         </View>
-        <Text>{row.title}</Text>
-        <Text>To Dos</Text>
+        <TextInput
+          style={{
+            fontFamily: Theme.fontFamily,
+            color: Theme.primary,
+            fontWeight: "600",
+            marginBottom: 20,
+            fontSize: 20,
+          }}
+          onChangeText={handleUpdateTitle}
+        >
+          {row.title}
+        </TextInput>
         <LocalRowsView
           relationshipId="parentTodoList"
           remoteRowId={listId as string}

@@ -10,7 +10,7 @@ export default function Text({
 }: PropsWithChildren<TextProps>) {
   const { fontFamily } = useTheme();
   return (
-    <RNText {...rest} style={{ ...style, fontFamily, fontSize: 16 }}>
+    <RNText {...rest} style={{ fontFamily, fontSize: 16, ...style }}>
       {children}
     </RNText>
   );

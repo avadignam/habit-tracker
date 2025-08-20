@@ -11,6 +11,7 @@ import { z } from "zod";
 const schema = z.object({
   title: z.string({}).min(1, "obvs its gotta have a title dummy"),
   parentId: z.string(),
+  isCompleted: z.boolean(),
 });
 
 type FormValues = z.infer<typeof schema>;
@@ -30,6 +31,7 @@ export default function CreateTask() {
     () => ({
       title: getValues().title,
       parentId: listId as string,
+      isCompleted: false,
     }),
     [],
     undefined,

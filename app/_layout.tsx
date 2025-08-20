@@ -41,6 +41,7 @@ export default function RootLayout() {
   );
 
   useAndStartPersister(store);
+
   return (
     <Provider store={store} relationships={relationships}>
       <SafeAreaProvider>

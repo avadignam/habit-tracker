@@ -84,8 +84,6 @@ export default function MainNavTab({
         justifyContent: "center",
         alignItems: "center",
         paddingVertical: 5,
-        // borderColor: "green",
-        // borderWidth: 2,
       }}
     >
       <Animated.View style={animatedIconStyle}>

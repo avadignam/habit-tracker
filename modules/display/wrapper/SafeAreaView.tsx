@@ -1,5 +1,5 @@
 import { Back } from "@/modules/display/buttons";
-import { Theme } from "@/modules/display/wrapper";
+import { Theme } from "@/modules/display/wrapper/ThemeProvider";
 import { PropsWithChildren } from "react";
 import {
   SafeAreaView as RNSafeAreaView,

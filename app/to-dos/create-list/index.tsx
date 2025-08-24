@@ -1,11 +1,7 @@
 import { Text } from "@/modules/display/blocks";
 import { Back, Button } from "@/modules/display/buttons";
-import {
-  Color,
-  ColorChoice,
-  ColorValues,
-  Input,
-} from "@/modules/display/inputs";
+import { Color, ColorValues, Input } from "@/modules/display/inputs";
+import ColorPicker from "@/modules/display/inputs/ColorPicker";
 import { SafeAreaView } from "@/modules/display/wrapper";
 import ThemeProvider from "@/modules/display/wrapper/ThemeProvider";
 import { LISTS_TABLE } from "@/modules/to-dos";
@@ -32,7 +28,7 @@ export default function CreateList() {
     control,
     getValues,
     formState: { isValid },
-  } = useForm<FormValues>({ mode: "all" });
+  } = useForm<FormValues>({ mode: "all", defaultValues: { color } });
 
   const handleCreateList = useAddRowCallback(
     LISTS_TABLE,
@@ -63,7 +59,17 @@ export default function CreateList() {
           />
         </View>
         <Text style={styles.header}>Colour</Text>
-        <ColorChoice onColorSelect={setColor} selectedColor={color} />
+        <Controller
+          control={control}
+          rules={{ required: true }}
+          name="color"
+          render={({ field: { value, onChange } }) => (
+            <ColorPicker
+              onColorSelect={onChange}
+              selectedColor={value as Color}
+            />
+          )}
+        />
         <View style={{ marginTop: 30 }}>
           <Button
             onPress={handleSubmit(handleCreateList)}

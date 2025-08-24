@@ -1,3 +1,3 @@
-export * from "./ColorChoice";
-export { default as ColorChoice } from "./ColorChoice";
+export * from "./ColorPicker";
+export { default as ColorChoice } from "./ColorPicker";
 export { default as Input } from "./Input";

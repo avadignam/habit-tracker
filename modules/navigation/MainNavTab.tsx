@@ -1,5 +1,5 @@
-import { Icon } from "@/components";
-import { Theme } from "@/components/ThemeProvider";
+import { Icon } from "@/modules/display/blocks";
+import { Theme } from "@/modules/display/wrapper";
 import { BottomTabNavigationEventMap } from "@react-navigation/bottom-tabs";
 import { PlatformPressable } from "@react-navigation/elements";
 import {

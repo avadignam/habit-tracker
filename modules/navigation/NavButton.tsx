@@ -1,7 +1,8 @@
+import { shadow } from "@/styles";
 import { Link, LinkProps } from "expo-router";
 import { StyleSheet, View } from "react-native";
-import Text from "./Text";
-import { Theme } from "./ThemeProvider";
+import { Text } from "../display/blocks";
+import { Theme } from "../display/wrapper/ThemeProvider";
 
 export interface NavButtonProps {
   title: string;
@@ -32,9 +33,6 @@ export default function NavButton({ title, href }: NavButtonProps) {
 
 const styles = StyleSheet.create({
   wrapper: {
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 10 },
-    shadowRadius: 10,
-    shadowOpacity: 0.1,
+    ...shadow.regular,
   },
 });

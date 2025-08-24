@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@/modules/display/wrapper";
 import { useState } from "react";
 import { Pressable, StyleSheet, View } from "react-native";
 import Animated, {
@@ -5,7 +6,6 @@ import Animated, {
   useSharedValue,
   withSpring,
 } from "react-native-reanimated";
-import ThemeProvider from "./ThemeProvider";
 
 export const ColorValues = {
   red: "#e6194B",

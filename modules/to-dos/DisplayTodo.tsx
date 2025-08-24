@@ -1,9 +1,10 @@
-import { Icon, Text } from "@/components";
-import { Theme } from "@/components/ThemeProvider";
+import { Text } from "@/modules/display/blocks";
+import { Delete } from "@/modules/display/buttons";
+import { Theme } from "@/modules/display/wrapper/ThemeProvider";
 import { TODO_TABLE } from "@/modules/to-dos/consts";
 import Checkbox from "expo-checkbox";
 import { Link } from "expo-router";
-import { Pressable, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import {
   useDelRowCallback,
   useRow,
@@ -47,9 +48,7 @@ export default function TodoComponent({ id }: Props) {
         <Link href={`/to-dos/${id}`} style={styles.goToTask}>
           <Text>{task.title}</Text>
         </Link>
-        <Pressable onPress={() => handleDelete()} aria-label="Delete task">
-          <Icon name="trash" size={16} />
-        </Pressable>
+        <Delete handleDelete={handleDelete} ariaLabel="Delete task" />
       </View>
     </View>
   );

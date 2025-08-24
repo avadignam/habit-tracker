@@ -1,4 +1,4 @@
-import { Icon } from "@/components";
+import { Icon } from "@/modules/display/blocks";
 import MainNavigation from "@/modules/navigation/MainNavigation";
 import { LISTS_TABLE, TODO_TABLE } from "@/modules/to-dos";
 import { Tabs } from "expo-router";

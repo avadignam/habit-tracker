@@ -1,6 +1,7 @@
-import { Button, Input, SafeAreaView, Text } from "@/components";
-import BackButton from "@/components/BackButton";
-import ThemeProvider from "@/components/ThemeProvider";
+import { Text } from "@/modules/display/blocks";
+import { Back, Button } from "@/modules/display/buttons";
+import { Input } from "@/modules/display/inputs";
+import { SafeAreaView, ThemeProvider } from "@/modules/display/wrapper";
 import { TODO_TABLE } from "@/modules/to-dos";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { Controller, useForm } from "react-hook-form";
@@ -41,7 +42,7 @@ export default function CreateTask() {
   return (
     <ThemeProvider>
       <SafeAreaView>
-        <BackButton />
+        <Back />
         <Text>Title</Text>
         <Controller
           control={control}

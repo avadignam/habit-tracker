@@ -1,2 +1,2 @@
 export * from "./consts";
-export { default as TodoComponent } from "./Todo";
+export { default as TodoComponent } from "./DisplayTodo";

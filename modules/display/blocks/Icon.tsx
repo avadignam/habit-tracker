@@ -1,6 +1,6 @@
+import { Theme } from "@/modules/display/wrapper";
 import { Ionicons } from "@expo/vector-icons";
 import { ComponentProps } from "react";
-import { Theme } from "./ThemeProvider";
 
 export default function Icon({
   color = Theme.primary,

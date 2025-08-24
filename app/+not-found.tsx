@@ -1,5 +1,5 @@
-import { Text } from "@/components";
-import ThemeProvider from "@/components/ThemeProvider";
+import { Text } from "@/modules/display/blocks";
+import ThemeProvider from "@/modules/display/wrapper/ThemeProvider";
 import { View } from "react-native";
 
 export default function NotFound() {

@@ -1,7 +1,13 @@
-import { Button, Input, SafeAreaView, Text } from "@/components";
-import BackButton from "@/components/BackButton";
-import ColorChoice, { Color, ColorValues } from "@/components/ColorChoice";
-import ThemeProvider from "@/components/ThemeProvider";
+import { Text } from "@/modules/display/blocks";
+import { Back, Button } from "@/modules/display/buttons";
+import {
+  Color,
+  ColorChoice,
+  ColorValues,
+  Input,
+} from "@/modules/display/inputs";
+import { SafeAreaView } from "@/modules/display/wrapper";
+import ThemeProvider from "@/modules/display/wrapper/ThemeProvider";
 import { LISTS_TABLE } from "@/modules/to-dos";
 import { useRouter } from "expo-router";
 import { useState } from "react";
@@ -42,7 +48,7 @@ export default function CreateList() {
   return (
     <ThemeProvider>
       <SafeAreaView>
-        <BackButton />
+        <Back />
         <Text style={styles.header}>Title</Text>
         <View style={styles.header}>
           <Controller

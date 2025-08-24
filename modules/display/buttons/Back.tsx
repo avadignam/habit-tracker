@@ -1,7 +1,7 @@
-import { Icon, Text } from "@/components";
+import { Icon, Text } from "@/modules/display/blocks";
+import { Theme } from "@/modules/display/wrapper";
 import { LinkProps, useRouter } from "expo-router";
 import { Pressable, StyleSheet } from "react-native";
-import { Theme } from "./ThemeProvider";
 
 interface Props {
   href?: LinkProps["href"];

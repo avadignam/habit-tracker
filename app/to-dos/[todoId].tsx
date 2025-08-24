@@ -1,5 +1,5 @@
-import { SafeAreaView, Text } from "@/components";
-import ThemeProvider from "@/components/ThemeProvider";
+import { Text } from "@/modules/display/blocks";
+import { SafeAreaView, ThemeProvider } from "@/modules/display/wrapper";
 import { TODO_TABLE } from "@/modules/to-dos";
 import { useLocalSearchParams } from "expo-router";
 import { useRow } from "tinybase/ui-react";

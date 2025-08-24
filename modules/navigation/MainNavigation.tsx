@@ -1,4 +1,5 @@
-import ThemeProvider, { Theme } from "@/components/ThemeProvider";
+import ThemeProvider, { Theme } from "@/modules/display/wrapper/ThemeProvider";
+import { shadow } from "@/styles";
 import { BottomTabBarProps } from "@react-navigation/bottom-tabs";
 import { useState } from "react";
 import { LayoutChangeEvent, StyleSheet, View } from "react-native";
@@ -96,9 +97,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 50,
     borderRadius: 16,
     backgroundColor: "white",
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 10 },
-    shadowRadius: 10,
-    shadowOpacity: 0.1,
+    ...shadow.regular,
   },
 });

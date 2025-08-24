@@ -1,5 +1,4 @@
-import { SafeAreaView } from "@/components";
-import ThemeProvider from "@/components/ThemeProvider";
+import { SafeAreaView, ThemeProvider } from "@/modules/display/wrapper";
 import { Tabs } from "expo-router";
 
 export default function HabitsLayout() {

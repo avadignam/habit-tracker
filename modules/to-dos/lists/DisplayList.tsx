@@ -1,5 +1,5 @@
-import { Text } from "@/components";
-import { Theme } from "@/components/ThemeProvider";
+import { Text } from "@/modules/display/blocks";
+import { Theme } from "@/modules/display/wrapper/ThemeProvider";
 import { Link } from "expo-router";
 import { useRow } from "tinybase/ui-react";
 import { LISTS_TABLE } from "../consts";
@@ -13,11 +13,12 @@ export default function DisplayList({ id }: Props) {
   return (
     <Link
       style={{
-        borderWidth: 2,
-        borderColor: Theme.primary,
-        padding: 10,
-        borderRadius: Theme.borderRadius,
+        flexDirection: "row",
+        padding: 12,
         marginBottom: 10,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: Theme.primaryTranslucent,
       }}
       href={`/to-dos/${id}`}
     >

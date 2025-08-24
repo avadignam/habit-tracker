@@ -1,5 +1,5 @@
-import { Icon, SafeAreaView, Text } from "@/components";
-import ThemeProvider from "@/components/ThemeProvider";
+import { Icon, Text } from "@/modules/display/blocks";
+import { SafeAreaView, ThemeProvider } from "@/modules/display/wrapper";
 import { LISTS_TABLE } from "@/modules/to-dos";
 import DisplayList from "@/modules/to-dos/lists/DisplayList";
 import { Link } from "expo-router";

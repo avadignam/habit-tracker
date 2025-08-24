@@ -1,5 +1,5 @@
-import { SafeAreaView, Text } from "@/components";
-import ThemeProvider from "@/components/ThemeProvider";
+import { Text } from "@/modules/display/blocks";
+import { SafeAreaView, ThemeProvider } from "@/modules/display/wrapper";
 
 export default function Notes() {
   return (

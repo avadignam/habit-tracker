@@ -1,6 +1,5 @@
-import { SafeAreaView } from "@/components";
-import NavButton, { NavButtonProps } from "@/components/NavButton";
-import ThemeProvider from "@/components/ThemeProvider";
+import { SafeAreaView, ThemeProvider } from "@/modules/display/wrapper";
+import NavButton, { NavButtonProps } from "@/modules/navigation/NavButton";
 import { FlatList } from "react-native";
 
 const NavButtons: NavButtonProps[] = [

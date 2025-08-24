@@ -1,6 +1,7 @@
-import { Icon, SafeAreaView } from "@/components";
-import BackButton from "@/components/BackButton";
-import ThemeProvider, { Theme } from "@/components/ThemeProvider";
+import { Icon } from "@/modules/display/blocks";
+import Back from "@/modules/display/buttons/Back";
+import SafeAreaView from "@/modules/display/wrapper/SafeAreaView";
+import ThemeProvider, { Theme } from "@/modules/display/wrapper/ThemeProvider";
 import { LISTS_TABLE, TodoComponent } from "@/modules/to-dos";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { Pressable, TextInput, View } from "react-native";
@@ -27,7 +28,7 @@ export default function List() {
             flexDirection: "row",
           }}
         >
-          <BackButton dismiss />
+          <Back dismiss />
           <Pressable
             onPress={() => navigate(`/to-dos/${listId}/create-task`)}
             aria-label="Add a task"
@@ -35,18 +36,20 @@ export default function List() {
             <Icon name="add" />
           </Pressable>
         </View>
-        <TextInput
-          style={{
-            fontFamily: Theme.fontFamily,
-            color: Theme.primary,
-            fontWeight: "600",
-            marginBottom: 20,
-            fontSize: 20,
-          }}
-          onChangeText={handleUpdateTitle}
-        >
-          {row.title}
-        </TextInput>
+        <View>
+          <TextInput
+            style={{
+              fontFamily: Theme.fontFamily,
+              color: Theme.primary,
+              fontWeight: "600",
+              marginBottom: 20,
+              fontSize: 20,
+            }}
+            onChangeText={handleUpdateTitle}
+          >
+            {row.title}
+          </TextInput>
+        </View>
         <LocalRowsView
           relationshipId="parentTodoList"
           remoteRowId={listId as string}
